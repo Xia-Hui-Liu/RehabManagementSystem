@@ -9,3 +9,12 @@
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/refint/RehabManagementSystem.Database.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/RehabManagementSystem.Database.pdb
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/ref/RehabManagementSystem.Database.dll
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/bin/Debug/net8.0/RehabManagementSystem.Database.runtimeconfig.json
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/bin/Debug/net8.0/RehabManagementSystem.Domain.dll
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/bin/Debug/net8.0/RehabManagementSystem.GrpcServices.dll
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/bin/Debug/net8.0/RehabManagementSystem.Domain.pdb
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/bin/Debug/net8.0/RehabManagementSystem.GrpcServices.pdb
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/RehabManagementSystem.Database.csproj.AssemblyReference.cache
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/RehabManagementSystem.Database.sourcelink.json
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/RehabManagementSystem.Database.csproj.CopyComplete
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Database/obj/Debug/net8.0/RehabManagementSystem.Database.genruntimeconfig.cache

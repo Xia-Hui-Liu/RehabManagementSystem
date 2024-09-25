@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U0vuumceSUbj9JZxQTldj8eOQgWjN07g5LOaSG+69Bq5WvY/n0Jyc8bqGL2qUAmAx2BTeUSAXMkLPDDc4hnvOw==",
+  "dgSpecHash": "Qjtb2QdR/OdRx0R2+LTty7Mn2BecKcvaHkTa/DZvMRFt+ecfZ8BaS6iMaz/qUvikzVpftR59DWxMS6Pgd5nniw==",
   "success": true,
-  "projectFilePath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/RehabManagementApi.csproj",
+  "projectFilePath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/RehabManagementSystem.API.csproj",
   "expectedPackageFiles": [
     "/Users/xiahuiliu/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/xiahuiliu/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.8/microsoft.aspnetcore.authentication.jwtbearer.8.0.8.nupkg.sha512",

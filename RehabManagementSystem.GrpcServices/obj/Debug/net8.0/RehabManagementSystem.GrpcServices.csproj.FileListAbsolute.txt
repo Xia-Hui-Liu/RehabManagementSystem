@@ -9,3 +9,4 @@
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/obj/Debug/net8.0/refint/RehabManagementSystem.GrpcServices.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/obj/Debug/net8.0/RehabManagementSystem.GrpcServices.pdb
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/obj/Debug/net8.0/ref/RehabManagementSystem.GrpcServices.dll
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/obj/Debug/net8.0/RehabManagementSystem.GrpcServices.sourcelink.json

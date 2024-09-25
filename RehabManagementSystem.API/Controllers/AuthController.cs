@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RehabManagementSystem.Domain.Models;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ public class AuthController : ControllerBase
     [Authorize(Roles = "Admin")]
     [HttpPost("register")]
     [AllowAnonymous]
-    public async Task<IActionResult> Register([FromBody] RegisterModel model)
+    public async Task<IActionResult> Register([FromBody] Register model)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
@@ -56,7 +57,7 @@ public class AuthController : ControllerBase
 
     [HttpPost("login")]
     [AllowAnonymous]
-    public async Task<IActionResult> Login([FromBody] LoginModel model)
+    public async Task<IActionResult> Login([FromBody] Login model)
     {
         _logger.LogInformation("Login attempt for user: {Email}", model.Email);
 
@@ -122,15 +123,15 @@ public class AuthController : ControllerBase
     }
 }
 
-public class RegisterModel
-{
-    public string? Email { get; set; }
-    public string? Password { get; set; }
-    public string? Role { get; set; }
-}
+// public class RegisterModel
+// {
+//     public string? Email { get; set; }
+//     public string? Password { get; set; }
+//     public string? Role { get; set; }
+// }
 
-public class LoginModel
-{
-    public string? Email { get; set; }
-    public string? Password { get; set; }
-}
+// public class LoginModel
+// {
+//     public string? Email { get; set; }
+//     public string? Password { get; set; }
+// }

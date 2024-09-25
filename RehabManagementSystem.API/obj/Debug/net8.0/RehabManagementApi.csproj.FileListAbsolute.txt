@@ -288,3 +288,4 @@
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.GrpcServices.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Database.pdb
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.GrpcServices.pdb
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/obj/Debug/net8.0/RehabManagementApi.sourcelink.json

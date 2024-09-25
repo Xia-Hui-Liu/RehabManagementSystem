@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
+using RehabManagementSystem.Database;
 
 using System.Text;
 using Microsoft.AspNetCore.Identity;
