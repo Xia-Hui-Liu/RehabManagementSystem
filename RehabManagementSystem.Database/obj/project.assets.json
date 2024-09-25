@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "RehabManagementSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/RehabManagementSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RehabManagementSystem.Domain.dll": {}
+        }
+      },
+      "RehabManagementSystem.GrpcServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/RehabManagementSystem.GrpcServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RehabManagementSystem.GrpcServices.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "RehabManagementSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj",
+      "msbuildProject": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
+    },
+    "RehabManagementSystem.GrpcServices/1.0.0": {
+      "type": "project",
+      "path": "../RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj",
+      "msbuildProject": "../RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "RehabManagementSystem.Domain >= 1.0.0",
+      "RehabManagementSystem.GrpcServices >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/xiahuiliu/.nuget/packages/": {}
@@ -31,7 +66,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj": {
+              "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
+            },
+            "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj": {
+              "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
