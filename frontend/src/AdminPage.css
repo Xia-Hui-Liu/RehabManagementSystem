@@ -1,0 +1,110 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --nav-background: #fff;
+    --nav-hover-color: #0056b3;
+    --nav-active-color: #004494;
+    --button-padding: 12px 20px;
+    --button-font-size: 14px;
+  }
+  
+  .admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    padding: 20px;
+  }
+  
+  header {
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    background-color: var(--nav-background);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-nav-link {
+    display: block;
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primary-color);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .admin-nav-link:hover {
+    background-color: var(--nav-hover-color);
+    transform: scale(1.05);
+  }
+  
+  .admin-nav-link:active {
+    background-color: var(--nav-active-color);
+  }
+  
+  @media (min-width: 600px) {
+    .admin-nav-link {
+      width: auto;
+      max-width: 180px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .admin-container {
+      padding: 40px;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    .admin-nav {
+      gap: 20px;
+    }
+  
+    .admin-nav-link {
+      font-size: 16px;
+      padding: 15px 25px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .admin-container {
+      padding: 60px;
+    }
+  
+    header h1 {
+      font-size: 2.5rem;
+    }
+  
+    .admin-nav {
+      gap: 25px;
+    }
+  
+    .admin-nav-link {
+      font-size: 18px;
+      padding: 20px 30px;
+    }
+  }
+  

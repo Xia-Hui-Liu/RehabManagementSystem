@@ -1,0 +1,97 @@
+/* Base styles for mobile devices (default) */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  padding: 0; /* Remove padding */
+  overflow: hidden; /* Prevent scrolling issues */
+}
+
+.login-container {
+  background-color: #ffffff;
+  padding: 40px; /* Padding inside the container */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Constrain width for mobile */
+  text-align: center;
+  margin: auto; /* Center the container horizontally and vertically */
+}
+
+.login-container h2 {
+  color: #333;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.login-input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.login-button {
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #2563eb;
+}
+
+.error-message {
+  color: red;
+  margin-top: 16px;
+}
+
+/* Styles for larger screens (Tablets and Desktops) */
+@media (min-width: 768px) {
+  .login-container {
+    padding: 60px;
+    max-width: 500px;
+  }
+
+  .login-container h2 {
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .login-input, .login-button {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .login-form {
+    gap: 20px;
+  }
+}
+
+/* Styles for desktops and larger screens */
+@media (min-width: 1024px) {
+  .login-container {
+    max-width: 600px;
+  }
+}
