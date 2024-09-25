@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RehabManagementSystem.Database\RehabManagementSystem.Database.csproj" />
+     <ProjectReference Include="..\RehabManagementSystem.Domain\RehabManagementSystem.Domain.csproj" />
     <ProjectReference Include="..\RehabManagementSystem.GrpcServices\RehabManagementSystem.GrpcServices.csproj" />
   </ItemGroup>
 
