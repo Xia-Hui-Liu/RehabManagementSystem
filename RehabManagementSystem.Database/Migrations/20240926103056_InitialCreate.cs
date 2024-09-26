@@ -172,8 +172,8 @@ namespace RehabManagementSystem.Database.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "07e192ff-b93f-4b31-9bef-897f531263ec", "user1@example.com", true, false, null, "USER1@EXAMPLE.COM", "USER1@EXAMPLE.COM", "AQAAAAIAAYagAAAAENyR8vjwrQ9oZl9dJZMwvkQz36q/emwj76+5hVOi4geoFYcdCSYchgXMg9qsLMAb2Q==", null, false, "4e6329ef-1db5-4a81-852f-537b0ad11c95", false, "user1@example.com" },
-                    { "2", 0, "3cdbb30c-f2d8-4172-ba70-628b2bcc8056", "user2@example.com", true, false, null, "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEK6OU+PbhAENU4JBHHsQeXtLLv+aeV0CnhUKQIGcO3UrBchTV6s4zWg7m/iKjXrSTQ==", null, false, "9a655728-bf08-4b1a-a870-02fc87e632b6", false, "user2@example.com" }
+                    { "1", 0, "58f87270-4b99-4d50-a6f3-b84e138cc87b", "user1@example.com", true, false, null, "USER1@EXAMPLE.COM", "USER1@EXAMPLE.COM", "AQAAAAIAAYagAAAAEA3bMqHgqiwZG8S5HFgLLOoTh3wjoIUD5hXgyKHGEBQWa68iiAdZ6FZgQaP+Y0jsLg==", null, false, "3e429acb-1e8f-4789-806d-36d3166abb1f", false, "user1@example.com" },
+                    { "2", 0, "7b6f7e44-d0f3-41db-8313-1ca122d0d9f6", "user2@example.com", true, false, null, "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKOyoqWHtEGglIvy5pNv5WI2dcUzmhG/zj+X302JyHsVe81Mm+SKBmQr4UunXRNEuA==", null, false, "25420f16-bec7-49b9-94af-503032edbe75", false, "user2@example.com" }
                 });
 
             migrationBuilder.InsertData(

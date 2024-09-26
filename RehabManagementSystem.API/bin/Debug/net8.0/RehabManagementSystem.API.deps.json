@@ -16,10 +16,6 @@
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
           "RehabManagementSystem.Database": "1.0.0",
           "RehabManagementSystem.Domain": "1.0.0",
-<<<<<<< HEAD
-          "RehabManagementSystem.GrpcServices": "1.0.0",
-=======
->>>>>>> main
           "Swashbuckle.AspNetCore": "6.4.0",
           "System.IdentityModel.Tokens.Jwt": "8.0.2"
         },
@@ -866,12 +862,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.8",
-<<<<<<< HEAD
-          "RehabManagementSystem.Domain": "1.0.0",
-          "RehabManagementSystem.GrpcServices": "1.0.0"
-=======
           "RehabManagementSystem.Domain": "1.0.0"
->>>>>>> main
         },
         "runtime": {
           "RehabManagementSystem.Database.dll": {}
@@ -881,14 +872,6 @@
         "runtime": {
           "RehabManagementSystem.Domain.dll": {}
         }
-<<<<<<< HEAD
-      },
-      "RehabManagementSystem.GrpcServices/1.0.0": {
-        "runtime": {
-          "RehabManagementSystem.GrpcServices.dll": {}
-        }
-=======
->>>>>>> main
       }
     }
   },
@@ -1376,14 +1359,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-<<<<<<< HEAD
-    },
-    "RehabManagementSystem.GrpcServices/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-=======
->>>>>>> main
     }
   }
 }
