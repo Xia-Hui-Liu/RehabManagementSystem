@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RehabManagementSystem.Database;
 
@@ -10,9 +11,11 @@ using RehabManagementSystem.Database;
 namespace RehabManagementSystem.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240926095421_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
@@ -148,25 +151,15 @@ namespace RehabManagementSystem.Database.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-<<<<<<< HEAD
                             ConcurrencyStamp = "07e192ff-b93f-4b31-9bef-897f531263ec",
-=======
-                            ConcurrencyStamp = "f40a7daf-c258-4a09-bc41-69f371d6c9f0",
->>>>>>> main
                             Email = "user1@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER1@EXAMPLE.COM",
                             NormalizedUserName = "USER1@EXAMPLE.COM",
-<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAENyR8vjwrQ9oZl9dJZMwvkQz36q/emwj76+5hVOi4geoFYcdCSYchgXMg9qsLMAb2Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "4e6329ef-1db5-4a81-852f-537b0ad11c95",
-=======
-                            PasswordHash = "AQAAAAIAAYagAAAAEJMM7+UJj/20OxgH/D4k8Uu4yg0BlT1EVWmg46hF/w9yFME8clQN7bdb91iJ61kP/w==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "79efceca-9061-4355-85c2-228393d1f040",
->>>>>>> main
                             TwoFactorEnabled = false,
                             UserName = "user1@example.com"
                         },
@@ -174,25 +167,15 @@ namespace RehabManagementSystem.Database.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-<<<<<<< HEAD
                             ConcurrencyStamp = "3cdbb30c-f2d8-4172-ba70-628b2bcc8056",
-=======
-                            ConcurrencyStamp = "2e1ed7ba-d4d6-46b9-94b8-e422b42e8155",
->>>>>>> main
                             Email = "user2@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER2@EXAMPLE.COM",
                             NormalizedUserName = "USER2@EXAMPLE.COM",
-<<<<<<< HEAD
                             PasswordHash = "AQAAAAIAAYagAAAAEK6OU+PbhAENU4JBHHsQeXtLLv+aeV0CnhUKQIGcO3UrBchTV6s4zWg7m/iKjXrSTQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "9a655728-bf08-4b1a-a870-02fc87e632b6",
-=======
-                            PasswordHash = "AQAAAAIAAYagAAAAEIjLR6oS0J2j7/wxa8i42BZk1mzVgDnqC9fw7/mrn76MHX7UyW5wcia/17H/XU+O3Q==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "89fd2372-1690-46c6-9349-fe62397e5bcf",
->>>>>>> main
                             TwoFactorEnabled = false,
                             UserName = "user2@example.com"
                         });
