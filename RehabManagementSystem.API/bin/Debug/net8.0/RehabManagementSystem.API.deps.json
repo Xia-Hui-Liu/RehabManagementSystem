@@ -861,7 +861,8 @@
       "RehabManagementSystem.Database/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
-          "Microsoft.EntityFrameworkCore.Sqlite": "8.0.8"
+          "Microsoft.EntityFrameworkCore.Sqlite": "8.0.8",
+          "RehabManagementSystem.Domain": "1.0.0"
         },
         "runtime": {
           "RehabManagementSystem.Database.dll": {}

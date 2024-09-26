@@ -18,11 +18,11 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-   <!-- <ItemGroup>
+   <ItemGroup>
      <ProjectReference Include="..\RehabManagementSystem.Domain\RehabManagementSystem.Domain.csproj" />
-     <ProjectReference Include="..\RehabManagementSystem.GrpcServices\RehabManagementSystem.GrpcServices.csproj" />
-     <ProjectReference Include="..\RehabManagementSystem.API\RehabManagementSystem.API.csproj" /> 
-  </ItemGroup> -->
+     <!-- <ProjectReference Include="..\RehabManagementSystem.GrpcServices\RehabManagementSystem.GrpcServices.csproj" />
+     <ProjectReference Include="..\RehabManagementSystem.API\RehabManagementSystem.API.csproj" />  -->
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />
   </ItemGroup>

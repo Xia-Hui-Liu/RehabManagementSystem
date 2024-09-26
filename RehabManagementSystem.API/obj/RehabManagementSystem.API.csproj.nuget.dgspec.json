@@ -126,7 +126,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj": {
+                "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

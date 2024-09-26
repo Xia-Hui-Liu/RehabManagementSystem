@@ -1109,6 +1109,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "RehabManagementSystem.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/RehabManagementSystem.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RehabManagementSystem.Domain.dll": {}
+        }
       }
     }
   },
@@ -2736,6 +2746,11 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "RehabManagementSystem.Domain/1.0.0": {
+      "type": "project",
+      "path": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj",
+      "msbuildProject": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2743,7 +2758,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.8",
-      "Microsoft.EntityFrameworkCore.tools >= 8.0.8"
+      "Microsoft.EntityFrameworkCore.tools >= 8.0.8",
+      "RehabManagementSystem.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2770,7 +2786,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj": {
+              "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
