@@ -130,10 +130,15 @@
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Database.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Domain.dll
+<<<<<<< HEAD
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.GrpcServices.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Database.pdb
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Domain.pdb
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.GrpcServices.pdb
+=======
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Database.pdb
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/bin/Debug/net8.0/RehabManagementSystem.Domain.pdb
+>>>>>>> main
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/obj/Debug/net8.0/staticwebassets.build.json
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/obj/Debug/net8.0/staticwebassets.development.json
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.API/obj/Debug/net8.0/staticwebassets/msbuild.RehabManagementSystem.API.Microsoft.AspNetCore.StaticWebAssets.props

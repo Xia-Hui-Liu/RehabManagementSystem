@@ -12,8 +12,7 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
-          "RehabManagementSystem.Domain": "1.0.0",
-          "RehabManagementSystem.GrpcServices": "1.0.0"
+          "RehabManagementSystem.Domain": "1.0.0"
         },
         "runtime": {
           "RehabManagementSystem.Database.dll": {}
@@ -769,11 +768,6 @@
         "runtime": {
           "RehabManagementSystem.Domain.dll": {}
         }
-      },
-      "RehabManagementSystem.GrpcServices/1.0.0": {
-        "runtime": {
-          "RehabManagementSystem.GrpcServices.dll": {}
-        }
       }
     }
   },
@@ -1148,11 +1142,6 @@
       "hashPath": "system.threading.channels.6.0.0.nupkg.sha512"
     },
     "RehabManagementSystem.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "RehabManagementSystem.GrpcServices/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1353,8 +1353,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.8",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.8",
-          "RehabManagementSystem.Domain": "1.0.0",
-          "RehabManagementSystem.GrpcServices": "1.0.0"
+          "RehabManagementSystem.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/RehabManagementSystem.Database.dll": {}
@@ -1371,16 +1370,6 @@
         },
         "runtime": {
           "bin/placeholder/RehabManagementSystem.Domain.dll": {}
-        }
-      },
-      "RehabManagementSystem.GrpcServices/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/RehabManagementSystem.GrpcServices.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RehabManagementSystem.GrpcServices.dll": {}
         }
       }
     }
@@ -3531,11 +3520,6 @@
       "type": "project",
       "path": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj",
       "msbuildProject": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
-    },
-    "RehabManagementSystem.GrpcServices/1.0.0": {
-      "type": "project",
-      "path": "../RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj",
-      "msbuildProject": "../RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3548,7 +3532,6 @@
       "Microsoft.EntityFrameworkCore.tools >= 8.0.8",
       "RehabManagementSystem.Database >= 1.0.0",
       "RehabManagementSystem.Domain >= 1.0.0",
-      "RehabManagementSystem.GrpcServices >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "System.IdentityModel.Tokens.Jwt >= 8.0.2"
     ]
@@ -3583,9 +3566,6 @@
             },
             "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj": {
               "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
-            },
-            "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj": {
-              "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj"
             }
           }
         }

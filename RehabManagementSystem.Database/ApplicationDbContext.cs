@@ -17,7 +17,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
         base.OnModelCreating(modelBuilder);
 
         // Seed data for IdentityUser
-        modelBuilder.Entity<IdentityUser>().HasData(
+        _ = modelBuilder.Entity<IdentityUser>().HasData(
             new IdentityUser
             {
                 Id = "1",
