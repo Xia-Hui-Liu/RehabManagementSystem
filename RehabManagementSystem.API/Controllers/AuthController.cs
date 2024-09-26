@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using RehabManagementSystem.Domain.Models;
+using RehabManagementSystem.Domain;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -45,7 +45,7 @@ public class AuthController : ControllerBase
         }
 
         var user = new IdentityUser { UserName = model.Email, Email = model.Email };
-        var result = await _userManager.CreateAsync(user, model.Password);
+        var result = await _userManager.CreateAsync(user, model.Password!);
 
         if (!result.Succeeded)
             return BadRequest(result.Errors);
@@ -64,11 +64,11 @@ public class AuthController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var user = await _userManager.FindByEmailAsync(model.Email);
+        var user = await _userManager.FindByEmailAsync(model.Email!);
         if (user == null)
             return Unauthorized();
 
-        var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, lockoutOnFailure: false);
+        var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, false, lockoutOnFailure: false);
         var roles = await _userManager.GetRolesAsync(user);
         if (!result.Succeeded)
             return Unauthorized();
@@ -106,7 +106,7 @@ public class AuthController : ControllerBase
             var user = await _userManager.FindByIdAsync(userId);
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.UserName)
+                new Claim(ClaimTypes.Name, user!.UserName!)
             };
             var userRoles = _userManager.GetRolesAsync(user).Result;
                  claims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
@@ -123,15 +123,4 @@ public class AuthController : ControllerBase
     }
 }
 
-// public class RegisterModel
-// {
-//     public string? Email { get; set; }
-//     public string? Password { get; set; }
-//     public string? Role { get; set; }
-// }
 
-// public class LoginModel
-// {
-//     public string? Email { get; set; }
-//     public string? Password { get; set; }
-// }

@@ -26,7 +26,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
                 Email = "user1@example.com",
                 NormalizedEmail = "USER1@EXAMPLE.COM",
                 EmailConfirmed = true,
-                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Password123!"),
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null!, "Password123!"),
                 SecurityStamp = Guid.NewGuid().ToString()
             },
             new IdentityUser
@@ -37,7 +37,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
                 Email = "user2@example.com",
                 NormalizedEmail = "USER2@EXAMPLE.COM",
                 EmailConfirmed = true,
-                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null, "Password123!"),
+                PasswordHash = new PasswordHasher<IdentityUser>().HashPassword(null!, "Password123!"),
                 SecurityStamp = Guid.NewGuid().ToString()
             }
         );
