@@ -1109,26 +1109,6 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
-      },
-      "RehabManagementSystem.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/RehabManagementSystem.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RehabManagementSystem.Domain.dll": {}
-        }
-      },
-      "RehabManagementSystem.GrpcServices/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/RehabManagementSystem.GrpcServices.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RehabManagementSystem.GrpcServices.dll": {}
-        }
       }
     }
   },
@@ -2756,16 +2736,6 @@
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "RehabManagementSystem.Domain/1.0.0": {
-      "type": "project",
-      "path": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj",
-      "msbuildProject": "../RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
-    },
-    "RehabManagementSystem.GrpcServices/1.0.0": {
-      "type": "project",
-      "path": "../RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj",
-      "msbuildProject": "../RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2773,9 +2743,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.8",
-      "Microsoft.EntityFrameworkCore.tools >= 8.0.8",
-      "RehabManagementSystem.Domain >= 1.0.0",
-      "RehabManagementSystem.GrpcServices >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.tools >= 8.0.8"
     ]
   },
   "packageFolders": {
@@ -2802,14 +2770,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj": {
-              "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/RehabManagementSystem.Domain.csproj"
-            },
-            "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj": {
-              "projectPath": "/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.GrpcServices/RehabManagementSystem.GrpcServices.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

@@ -6,4 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\RehabManagementSystem.API\RehabManagementSystem.API.csproj" />
+  </ItemGroup> -->
 </Project>

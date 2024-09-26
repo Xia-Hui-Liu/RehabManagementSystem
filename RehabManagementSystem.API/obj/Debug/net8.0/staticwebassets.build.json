@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "hmtpvJWqSG4Grl673otqjlbpCuIzwEPIFgD9HG19BNA=",
-  "Source": "RehabManagementApi",
-  "BasePath": "_content/RehabManagementApi",
+  "Hash": "xPrvDcVabQSXAfLYYod1hPeMQW9wnHwkIuAKUXEs13I=",
+  "Source": "RehabManagementSystem.API",
+  "BasePath": "_content/RehabManagementSystem.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
