@@ -1,3 +1,66 @@
-# Ignore build outputs
+# Ignore build output directories
 bin/
 obj/
+
+# Ignore user-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore ASP.NET temporary files
+.vscode/
+.vs/
+.idea/
+
+# Ignore Rider project-specific files
+.idea/
+
+# Ignore JetBrains Rider workspace directories
+.idea/
+
+# Ignore Visual Studio Code workspace files
+.vscode/
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+# Uncomment if using .NET Core
+#**/bin/
+#**/obj/
+
+# Ignore build results
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore application logs and generated files
+*.log
+*.tlog
+*.wrn
+*.err
+
+# Ignore database-related files (if applicable)
+migrations/
+
+# Ignore Secrets
+appsettings.Development.json
+appsettings.*.json
+
+# Ignore dependency files
+libman.json
+
+# Ignore generated files (e.g., from Grpc or Protobuf)
+*.pb.*
+
+# Ignore unnecessary runtime files
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.log
+
+# Ignore deployment files
+publish/
