@@ -10,3 +10,4 @@
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/obj/Debug/net8.0/refint/RehabManagementSystem.Domain.dll
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/obj/Debug/net8.0/RehabManagementSystem.Domain.pdb
 /Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/obj/Debug/net8.0/ref/RehabManagementSystem.Domain.dll
+/Users/xiahuiliu/Documents/RehabManagementSystem/RehabManagementSystem.Domain/obj/Debug/net8.0/RehabManagementSystem.Domain.csproj.AssemblyReference.cache

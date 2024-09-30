@@ -11,8 +11,8 @@ using RehabManagementSystem.Database;
 namespace RehabManagementSystem.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240926103056_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240930092311_AddEmployee")]
+    partial class AddEmployee
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,6 +95,11 @@ namespace RehabManagementSystem.Database.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
@@ -146,20 +151,24 @@ namespace RehabManagementSystem.Database.Migrations
 
                     b.ToTable("AspNetUsers", (string)null);
 
+                    b.HasDiscriminator().HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
+
                     b.HasData(
                         new
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "58f87270-4b99-4d50-a6f3-b84e138cc87b",
+                            ConcurrencyStamp = "c265175a-9fdb-4ffa-b280-ac2b3ec5697c",
                             Email = "user1@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER1@EXAMPLE.COM",
                             NormalizedUserName = "USER1@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA3bMqHgqiwZG8S5HFgLLOoTh3wjoIUD5hXgyKHGEBQWa68iiAdZ6FZgQaP+Y0jsLg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECcGlnN45mtvxmERwV6stVA2Zi0R480L/DkbE4cfgfDfvZ+BXYSi2TOer0Jg+VHYNA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3e429acb-1e8f-4789-806d-36d3166abb1f",
+                            SecurityStamp = "da27c524-75de-4b86-bf02-56be812576fb",
                             TwoFactorEnabled = false,
                             UserName = "user1@example.com"
                         },
@@ -167,15 +176,15 @@ namespace RehabManagementSystem.Database.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b6f7e44-d0f3-41db-8313-1ca122d0d9f6",
+                            ConcurrencyStamp = "0eb5ba24-208b-4b71-9e48-73bc4d5a805b",
                             Email = "user2@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER2@EXAMPLE.COM",
                             NormalizedUserName = "USER2@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKOyoqWHtEGglIvy5pNv5WI2dcUzmhG/zj+X302JyHsVe81Mm+SKBmQr4UunXRNEuA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEElEsG0HWizDjN8FdnleZD4yvDgENFflfRJ4AZt0tsaz4xiEx2oFto+2/n23FSUO8w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "25420f16-bec7-49b9-94af-503032edbe75",
+                            SecurityStamp = "c7b7625e-bb4e-42d2-9359-78abf84c09b6",
                             TwoFactorEnabled = false,
                             UserName = "user2@example.com"
                         });
@@ -270,6 +279,19 @@ namespace RehabManagementSystem.Database.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("RehabManagementSystem.Domain.Employee", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

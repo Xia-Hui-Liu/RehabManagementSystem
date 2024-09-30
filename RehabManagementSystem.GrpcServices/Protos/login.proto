@@ -5,7 +5,7 @@ option csharp_namespace = "RehabManagementSystem.GrpcServices";
 package login;
 
 // The login service definition.
-service LoginService {
+service Login {
   // Handles user login
   rpc UserLogin (LoginRequest) returns (LoginReply);
 }

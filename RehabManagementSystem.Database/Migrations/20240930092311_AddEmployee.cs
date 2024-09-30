@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RehabManagementSystem.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class AddEmployee : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,9 @@ namespace RehabManagementSystem.Database.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
+                    Discriminator = table.Column<string>(type: "TEXT", maxLength: 13, nullable: false),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -169,11 +172,11 @@ namespace RehabManagementSystem.Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "58f87270-4b99-4d50-a6f3-b84e138cc87b", "user1@example.com", true, false, null, "USER1@EXAMPLE.COM", "USER1@EXAMPLE.COM", "AQAAAAIAAYagAAAAEA3bMqHgqiwZG8S5HFgLLOoTh3wjoIUD5hXgyKHGEBQWa68iiAdZ6FZgQaP+Y0jsLg==", null, false, "3e429acb-1e8f-4789-806d-36d3166abb1f", false, "user1@example.com" },
-                    { "2", 0, "7b6f7e44-d0f3-41db-8313-1ca122d0d9f6", "user2@example.com", true, false, null, "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEKOyoqWHtEGglIvy5pNv5WI2dcUzmhG/zj+X302JyHsVe81Mm+SKBmQr4UunXRNEuA==", null, false, "25420f16-bec7-49b9-94af-503032edbe75", false, "user2@example.com" }
+                    { "1", 0, "c265175a-9fdb-4ffa-b280-ac2b3ec5697c", "IdentityUser", "user1@example.com", true, false, null, "USER1@EXAMPLE.COM", "USER1@EXAMPLE.COM", "AQAAAAIAAYagAAAAECcGlnN45mtvxmERwV6stVA2Zi0R480L/DkbE4cfgfDfvZ+BXYSi2TOer0Jg+VHYNA==", null, false, "da27c524-75de-4b86-bf02-56be812576fb", false, "user1@example.com" },
+                    { "2", 0, "0eb5ba24-208b-4b71-9e48-73bc4d5a805b", "IdentityUser", "user2@example.com", true, false, null, "USER2@EXAMPLE.COM", "USER2@EXAMPLE.COM", "AQAAAAIAAYagAAAAEElEsG0HWizDjN8FdnleZD4yvDgENFflfRJ4AZt0tsaz4xiEx2oFto+2/n23FSUO8w==", null, false, "c7b7625e-bb4e-42d2-9359-78abf84c09b6", false, "user2@example.com" }
                 });
 
             migrationBuilder.InsertData(
