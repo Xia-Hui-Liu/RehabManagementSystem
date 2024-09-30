@@ -5,7 +5,7 @@ namespace RehabManagement.Database.Repositories;
 
 public interface IEmployeeRepository
 {
-    Task<Employee> GetEmployeeByIdAsync(int id);
+    Task<Employee?> GetEmployeeByIdAsync(int id);
     Task CreateEmployeeAsync(Employee employee);
     Task UpdateEmployeeAsync(Employee employee);
     Task DeleteEmployeeAsync(int id);
@@ -21,8 +21,11 @@ public class EmployeeRepository : IEmployeeRepository
     }
 
     // Get employee by id
-    public async Task<Employee> GetEmployeeByIdAsync(int id)
+    public async Task<Employee?> GetEmployeeByIdAsync(int id)
     {
+        if (_context.Employees == null)
+           return null;
+           
         return await _context.Employees.FindAsync(id);
     }
 

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RehabManagementSystem.Domain;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -11,15 +13,15 @@ using System.Threading.Tasks;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly UserManager<IdentityUser> _userManager;
-    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<Employee> _userManager;
+    private readonly SignInManager<Employee> _signInManager;
     private readonly ILogger<AuthController> _logger;
     private readonly JwtService _jwtService;
     private readonly RoleManager<IdentityRole> _roleManager;
 
     public AuthController(
-        UserManager<IdentityUser> userManager,
-        SignInManager<IdentityUser> signInManager,
+        UserManager<Employee> userManager,
+        SignInManager<Employee> signInManager,
         ILogger<AuthController> logger,
         JwtService jwtService, 
         RoleManager<IdentityRole> roleManager)
@@ -31,30 +33,67 @@ public class AuthController : ControllerBase
         _roleManager = roleManager;
     }
 
+    // Admin can register new employees
     [Authorize(Roles = "Admin")]
     [HttpPost("register")]
-    [AllowAnonymous]
     public async Task<IActionResult> Register([FromBody] Register model)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
         
-        if (!await _roleManager.RoleExistsAsync("Admin"))
-        {
-            await _roleManager.CreateAsync(new IdentityRole("Admin"));
-        }
-
-        var user = new IdentityUser { UserName = model.Email, Email = model.Email };
+        var user = new Employee { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
         var result = await _userManager.CreateAsync(user, model.Password!);
 
         if (!result.Succeeded)
             return BadRequest(result.Errors);
         
-        await _userManager.AddToRoleAsync(user, "Admin");
+        // Optionally assign a role to the new employee
+        await _userManager.AddToRoleAsync(user, "User"); // or whatever role you want
 
         return Ok(new { Message = "User registered successfully!" });
     }
 
+    // Admin can edit employee information
+    [Authorize(Roles = "Admin")]
+    [HttpPut("edit/{id}")]
+    public async Task<IActionResult> EditEmployee(string id, [FromBody] Register model)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+            return NotFound();
+
+        user.Email = model.Email;  // Update necessary fields
+        user.UserName = model.Email; // Ensure username matches email
+        // user.FirstName = model.FirstName;
+        // user.LastName = model.LastName;
+
+        var result = await _userManager.UpdateAsync(user);
+        if (!result.Succeeded)
+            return BadRequest(result.Errors);
+
+        return Ok(new { Message = "Employee updated successfully!" });
+    }
+
+    // Admin can delete an employee
+    [Authorize(Roles = "Admin")]
+    [HttpDelete("delete/{id}")]
+    public async Task<IActionResult> DeleteEmployee(string id)
+    {
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+            return NotFound();
+
+        var result = await _userManager.DeleteAsync(user);
+        if (!result.Succeeded)
+            return BadRequest(result.Errors);
+
+        return Ok(new { Message = "Employee deleted successfully!" });
+    }
+
+    // Login method
     [HttpPost("login")]
     [AllowAnonymous]
     public async Task<IActionResult> Login([FromBody] Login model)
@@ -90,9 +129,10 @@ public class AuthController : ControllerBase
          });
     }
 
-    [Authorize(Roles = "User")]
+    // Example: Get current user information
+    [Authorize]
     [HttpGet("user")]
-    public new async Task<IActionResult> User()
+    public async Task<IActionResult> NewUser()
     {
         try
         {
@@ -104,12 +144,6 @@ public class AuthController : ControllerBase
             var userId = token.Issuer; 
 
             var user = await _userManager.FindByIdAsync(userId);
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user!.UserName!)
-            };
-            var userRoles = _userManager.GetRolesAsync(user).Result;
-                 claims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
             if (user == null)
                 return Unauthorized();
 
@@ -122,5 +156,3 @@ public class AuthController : ControllerBase
         }
     }
 }
-
-
