@@ -33,26 +33,32 @@ public class AuthController : ControllerBase
         _roleManager = roleManager;
     }
 
-    // Admin can register new employees
-    [Authorize(Roles = "Admin")]
-    [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] Register model)
+[Authorize(Roles = "Admin")]
+[HttpPost("register")]
+[AllowAnonymous]
+public async Task<IActionResult> Register([FromBody] Register model)
+{
+    if (!ModelState.IsValid)
+        return BadRequest(ModelState);
+
+    // Check if role exists, if not, create it
+    if (!await _roleManager.RoleExistsAsync("Admin"))
     {
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
-        
-        var user = new Employee { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
-        var result = await _userManager.CreateAsync(user, model.Password!);
-
-        if (!result.Succeeded)
-            return BadRequest(result.Errors);
-        
-        // Optionally assign a role to the new employee
-        await _userManager.AddToRoleAsync(user, "User"); // or whatever role you want
-
-        return Ok(new { Message = "User registered successfully!" });
+        await _roleManager.CreateAsync(new IdentityRole("Admin"));
     }
 
+    // Create a new user
+    var user = new Employee { UserName = model.Email, Email = model.Email };
+    var result = await _userManager.CreateAsync(user, model.Password!);
+
+    if (!result.Succeeded)
+        return BadRequest(result.Errors);
+
+    // Assign role to the newly created user
+    await _userManager.AddToRoleAsync(user, "Admin");
+
+    return Ok(new { Message = "User registered successfully!" });
+}
     // Admin can edit employee information
     [Authorize(Roles = "Admin")]
     [HttpPut("edit/{id}")]
@@ -65,10 +71,10 @@ public class AuthController : ControllerBase
         if (user == null)
             return NotFound();
 
-        user.Email = model.Email;  // Update necessary fields
-        user.UserName = model.Email; // Ensure username matches email
-        // user.FirstName = model.FirstName;
-        // user.LastName = model.LastName;
+        user.Email = model.Email;  
+        user.UserName = model.Email; 
+        user.FirstName = model.FirstName;
+        user.LastName = model.LastName;
 
         var result = await _userManager.UpdateAsync(user);
         if (!result.Succeeded)
@@ -93,66 +99,90 @@ public class AuthController : ControllerBase
         return Ok(new { Message = "Employee deleted successfully!" });
     }
 
-    // Login method
-    [HttpPost("login")]
-    [AllowAnonymous]
-    public async Task<IActionResult> Login([FromBody] Login model)
+[HttpPost("login")]
+[AllowAnonymous]
+public async Task<IActionResult> Login([FromBody] Login model)
+{
+    _logger.LogInformation("Login attempt for user: {Email}", model.Email);
+
+    if (!ModelState.IsValid)
+        return BadRequest(ModelState);
+
+    // Find the user by email
+    var user = await _userManager.FindByEmailAsync(model.Email!);
+    if (user == null)
+        return Unauthorized(); // Return Unauthorized if the user doesn't exist
+
+    // Attempt to sign in
+    var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, false, lockoutOnFailure: false);
+
+    // If sign in failed
+    if (!result.Succeeded)
+        return Unauthorized();
+
+    // Optionally, retrieve user roles
+    var roles = await _userManager.GetRolesAsync(user);
+     // Generate JWT
+    var jwt = _jwtService.Generate(user.Id, roles);
+
+    Response.Cookies.Append("jwt", jwt, new CookieOptions
     {
-        _logger.LogInformation("Login attempt for user: {Email}", model.Email);
+        HttpOnly = true,
+        Secure = true, // Ensure cookies are only sent over HTTPS
+        SameSite = SameSiteMode.Strict
+    });
 
-        if (!ModelState.IsValid)
-            return BadRequest(ModelState);
+    // Return user info along with token
+    return Ok(new
+    { 
+        id = user.Id,
+        username = user.UserName,
+        email = user.Email,
+        roles,
+        token = jwt
+    });
+}
 
-        var user = await _userManager.FindByEmailAsync(model.Email!);
+
+[Authorize(Roles = "User")]
+[HttpGet("user")]
+public new async Task<IActionResult> User()
+{
+    try
+    {
+        var jwt = Request.Cookies["jwt"];
+        if (string.IsNullOrEmpty(jwt))
+            return Unauthorized();
+
+        // Get the user ID from the token
+        var userId = _jwtService.GetUserIdFromToken(jwt);
+        if (string.IsNullOrEmpty(userId))
+            return Unauthorized();
+
+        // Find the user using UserManager
+        var user = await _userManager.FindByIdAsync(userId);
         if (user == null)
-            return Unauthorized();
+            return NotFound("User not found");
 
-        var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, false, lockoutOnFailure: false);
+        // Get roles for the user
         var roles = await _userManager.GetRolesAsync(user);
-        if (!result.Succeeded)
-            return Unauthorized();
 
-        var jwt = _jwtService.Generate(user.Id);
-
-        Response.Cookies.Append("jwt", jwt, new CookieOptions
+        // Return user info along with roles
+        return Ok(new
         {
-            HttpOnly = true,
-            Secure = true, // Ensure cookies are only sent over HTTPS
-            SameSite = SameSiteMode.Strict
-        });
-
-        return Ok(new { 
             id = user.Id,
             username = user.UserName,
-            role = roles,
-            token = jwt
-         });
+            roles // This will be a list of roles associated with the user
+        });
     }
-
-    // Example: Get current user information
-    [Authorize]
-    [HttpGet("user")]
-    public async Task<IActionResult> NewUser()
+    catch (Exception ex)
     {
-        try
-        {
-            var jwt = Request.Cookies["jwt"];
-            if (string.IsNullOrEmpty(jwt))
-                return Unauthorized();
-            
-            var token = _jwtService.Verify(jwt);
-            var userId = token.Issuer; 
-
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-                return Unauthorized();
-
-            return Ok(user);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error fetching user.");
-            return Unauthorized();
-        }
+        _logger.LogError(ex, "Error fetching user.");
+        return Unauthorized();
     }
+}
+
+
+
+
 }
