@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
-import '../AdminPage.css'; // Import CSS file for styling
+import '../AdminPage.css'; 
 import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
 
 const AdminPage: React.FC = () => {
   const [firstName, setFirstName] = useState<string| null>(null);
@@ -16,19 +16,16 @@ const AdminPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="admin-container">
-      <Navbar firstname={firstName} />
-      <nav className="admin-nav">
-        <Link to="/admit-patient" className="admin-nav-link">Admit Patient</Link>
-        <Link to="/stock-management" className="admin-nav-link">Stock Management</Link>
-        <Link to="/purchasing" className="admin-nav-link">Purchasing</Link>
-        <Link to="/user-management" className="admin-nav-link">User Management</Link>
-        <Link to="/asset-management" className="admin-nav-link">Asset Management</Link>
-        <Link to="/reports" className="admin-nav-link">Reports</Link>
-        <Link to="/dashboard" className="admin-nav-link">Dashboard</Link>
-        <Link to="/task-management" className="admin-nav-link">Task Management</Link>
-        <Link to="/staff-management" className="admin-nav-link">Staff Management</Link>
-      </nav>
+    <div className="admin-layout">
+      <Navbar firstname={firstName} /> {/* Add username/firstName if available */}
+      <div className="admin-body">
+        <Sidebar />
+        <main className="admin-content">
+          <h2>Admin Dashboard</h2>
+          <p>Welcome to the admin dashboard! Here you can manage patients, stock, tasks, and more.</p>
+          {/* Other admin content goes here */}
+        </main>
+      </div>
     </div>
   );
 };

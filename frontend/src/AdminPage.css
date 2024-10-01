@@ -1,110 +1,126 @@
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --background-color: #f8f9fa;
-    --text-color: #333;
-    --nav-background: #fff;
-    --nav-hover-color: #0056b3;
-    --nav-active-color: #004494;
-    --button-padding: 12px 20px;
-    --button-font-size: 14px;
-  }
-  
-  .admin-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: var(--background-color);
-    padding: 20px;
-  }
-  
-  header {
-    margin-bottom: 20px;
-  }
-  
-  header h1 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .admin-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    background-color: var(--nav-background);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --nav-background: #fff;
+  --nav-hover-color: #0056b3;
+  --nav-active-color: #004494;
+  --button-padding: 12px 20px;
+  --button-font-size: 14px;
+}
+
+/* Admin Layout */
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--nav-background);
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Body - Sidebar and Main Content */
+.admin-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  background-color: var(--primary-color);
+  color: white;
+  width: 25%; /* Set the sidebar to take up 1/4 of the page width */
+  min-width: 250px; /* Ensure sidebar is always at least 250px wide */
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Make the links stretch full width */
+}
+
+.admin-nav-link:hover {
+  background-color: var(--nav-hover-color);
+  transform: scale(1.05);
+}
+
+/* Main Content */
+.admin-content {
+  flex: 1; /* Take up the remaining space on the page */
+  padding: 20px;
+  background-color: var(--background-color);
+  overflow-y: auto;
+}
+
+h2 {
+  color: var(--primary-color);
+}
+
+p {
+  color: var(--text-color);
+}
+
+@media (min-width: 600px) {
   .admin-nav-link {
-    display: block;
-    padding: var(--button-padding);
-    font-size: var(--button-font-size);
-    font-weight: bold;
-    color: #fff;
-    background-color: var(--primary-color);
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.3s;
+    width: auto;
+    max-width: 180px;
   }
-  
-  .admin-nav-link:hover {
-    background-color: var(--nav-hover-color);
-    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .admin-container {
+    padding: 40px;
   }
-  
-  .admin-nav-link:active {
-    background-color: var(--nav-active-color);
+
+  header h1 {
+    font-size: 2rem;
   }
-  
-  @media (min-width: 600px) {
-    .admin-nav-link {
-      width: auto;
-      max-width: 180px;
-    }
+
+  .admin-nav {
+    gap: 20px;
   }
-  
-  @media (min-width: 768px) {
-    .admin-container {
-      padding: 40px;
-    }
-  
-    header h1 {
-      font-size: 2rem;
-    }
-  
-    .admin-nav {
-      gap: 20px;
-    }
-  
-    .admin-nav-link {
-      font-size: 16px;
-      padding: 15px 25px;
-    }
+
+  .admin-nav-link {
+    font-size: 16px;
+    padding: 15px 25px;
   }
-  
-  @media (min-width: 1024px) {
-    .admin-container {
-      padding: 60px;
-    }
-  
-    header h1 {
-      font-size: 2.5rem;
-    }
-  
-    .admin-nav {
-      gap: 25px;
-    }
-  
-    .admin-nav-link {
-      font-size: 18px;
-      padding: 20px 30px;
-    }
+}
+
+@media (min-width: 1024px) {
+  .admin-container {
+    padding: 60px;
   }
-  
+
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  .admin-nav {
+    gap: 25px;
+  }
+
+  .admin-nav-link {
+    font-size: 18px;
+    padding: 20px 30px;
+  }
+}
