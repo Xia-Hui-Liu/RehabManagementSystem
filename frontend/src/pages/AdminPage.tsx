@@ -1,12 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../AdminPage.css'; // Import CSS file for styling
 import Navbar from '../components/Navbar';
 
 const AdminPage: React.FC = () => {
+  const [firstName, setFirstName] = useState<string| null>(null);
+
+  useEffect (() => {
+    const userData = localStorage.getItem("user");
+    console.log(userData);
+    if (userData){
+      const parsedUser = JSON.parse(userData);
+      setFirstName(parsedUser.firstName);
+    }
+  }, []);
+
   return (
     <div className="admin-container">
-      <Navbar />
+      <Navbar firstname={firstName} />
       <nav className="admin-nav">
         <Link to="/admit-patient" className="admin-nav-link">Admit Patient</Link>
         <Link to="/stock-management" className="admin-nav-link">Stock Management</Link>

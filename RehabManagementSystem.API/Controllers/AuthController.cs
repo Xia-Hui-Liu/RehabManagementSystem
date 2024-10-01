@@ -138,6 +138,8 @@ public async Task<IActionResult> Login([FromBody] Login model)
         id = user.Id,
         username = user.UserName,
         email = user.Email,
+        firstname = user.FirstName,
+        lastname = user.LastName,
         roles,
         token = jwt
     });

@@ -33,7 +33,7 @@
   .admin-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
     background-color: var(--nav-background);
     padding: 10px;

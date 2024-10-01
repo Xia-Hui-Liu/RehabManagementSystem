@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
     setError(null);
     try {
       const result = await userLogin(username, password);
-      if (result.role.includes('Admin')) { 
+      if (result.roles.includes('Admin')) { 
         navigate('/admin');
       } else {
         navigate('/user');

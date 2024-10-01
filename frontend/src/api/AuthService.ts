@@ -8,8 +8,10 @@ export const userLogin = async(email: string, password: string): Promise<any> =>
             email,
             password
         });
-        console.log(response.data);
-        return response.data;
+        const userData = response.data;
+        console.log(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+        return userData;
     } catch (error : any) {
         if (axios.isAxiosError(error) && error.response)
         {
