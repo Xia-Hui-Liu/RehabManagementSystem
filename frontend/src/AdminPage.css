@@ -116,6 +116,21 @@
   color: var(--sidebar-text-color);
   text-decoration: none;
   transition: background-color 0.3s;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+}
+
+
+.admin-nav-link:hover {
+  background-color: var(--nav-hover-color);
+}
+
+.admin-nav-link.active {
+  background-color: var(--nav-active-color);
 }
 
 .admin-nav-link:hover {
