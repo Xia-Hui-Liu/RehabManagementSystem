@@ -1,0 +1,65 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --nav-background: #fff;
+    --nav-hover-color: #0056b3;
+    --nav-active-color: #004494;
+    --sidebar-width: 250px;
+  }
+  
+  /* Sidebar Styling */
+  .admin-sidebar {
+    background-color: var(--secondary-color);
+    color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%; /* Hide sidebar by default */
+    width: var(--sidebar-width);
+    transition: left 0.3s ease;
+    z-index: 1000; /* Ensure sidebar appears over content */
+    padding-top: 60px; /* Space for fixed navbar */
+  }
+  
+  .admin-sidebar.open {
+    left: 0; /* Slide in when open */
+  }
+  
+  .admin-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  
+  .admin-nav-link {
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .admin-nav-link:hover {
+    background-color: var(--nav-hover-color);
+  }
+  
+  .admin-nav-link.active {
+    background-color: var(--nav-active-color);
+  }
+  
+  /* Sidebar visible on larger screens */
+  @media (min-width: 600px) {
+    .admin-sidebar {
+      position: relative;
+      left: 0; /* Always visible on larger screens */
+      width: var(--sidebar-width);
+    }
+  
+    .admin-content {
+      margin-left: var(--sidebar-width); /* Adjust content to not overlap with sidebar */
+    }
+  }
+  
