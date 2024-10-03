@@ -24,7 +24,16 @@ public class EmployeeRepository : IEmployeeRepository
     // Create a new employee
     public async Task CreateEmployeeAsync(Employee employee)
     {
-        await _context.Employees.AddAsync(employee);
+        var newemployee = new Employee
+        {
+            Id = employee.Id,
+            FirstName = employee.FirstName,
+            LastName = employee.LastName,
+            Email = employee.Email,
+            PhoneNumber = employee.PhoneNumber,
+            PasswordHash = employee.PasswordHash,
+        };
+        await _context.Employees.AddAsync(newemployee);
         await _context.SaveChangesAsync();
     }
 

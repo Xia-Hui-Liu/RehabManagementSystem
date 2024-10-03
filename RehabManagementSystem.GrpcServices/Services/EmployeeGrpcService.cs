@@ -1,4 +1,6 @@
+using Google.Protobuf;
 using Grpc.Core;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using RehabManagement.GrpcServices;
 
 
@@ -26,9 +28,39 @@ public class EmployeeGrpcService : EmployeeService.EmployeeServiceBase
             {
                 Id = employee.Id,
                 FirstName = employee.FirstName,
-                LastName = employee.LastName
+                LastName = employee.LastName,
             }
         };
+    }
+
+    public override async Task<EmptyResponse> CreateEmployee(CreateEmployeeRequest request, ServerCallContext context)
+    {
+        var employee = new RehabManagementSystem.Domain.Employee
+        {
+            FirstName = request.Employee.FirstName,
+            LastName = request.Employee.LastName,
+        };
+        await _employeeRepository.CreateEmployeeAsync(employee);
+        return new EmptyResponse();
+    }
+
+     public override async Task<EmptyResponse> UpdateEmployee(UpdateEmployeeRequest request, ServerCallContext context)
+    {
+        var employee = new Domain.Employee
+        {
+            Id = request.Employee.Id,
+            FirstName = request.Employee.FirstName,
+            LastName = request.Employee.LastName,
+        };
+
+        await _employeeRepository.UpdateEmployeeAsync(employee);
+        return new EmptyResponse();
+    }
+
+     public override async Task<EmptyResponse> DeleteEmployee(DeleteEmployeeRequest request, ServerCallContext context)
+    {
+        await _employeeRepository.DeleteEmployeeAsync(request.Id);
+        return new EmptyResponse();
     }
 
    
