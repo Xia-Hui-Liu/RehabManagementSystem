@@ -27,7 +27,7 @@ const AdminPage: React.FC = () => {
       <main className={`admin-content ${isSidebarOpen ? 'open' : 'collapsed'}`}>
         <h2>Admin Dashboard</h2>
         <p>Welcome to the admin dashboard! Here you can manage patients, stock, tasks, and more.</p>
-        {/* Other admin content goes here */}
+        
       </main>
       <footer className="admin-footer">
         &copy; 2024 Rainbow Rehab Center. All rights reserved.
