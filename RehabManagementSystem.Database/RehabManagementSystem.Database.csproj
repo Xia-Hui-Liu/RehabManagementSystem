@@ -22,7 +22,6 @@
   </ItemGroup>
    <ItemGroup>
      <ProjectReference Include="..\RehabManagementSystem.Domain\RehabManagementSystem.Domain.csproj" />
-     <ProjectReference Include="..\RehabManagementSystem.GrpcServices\RehabManagementSystem.GrpcServices.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />

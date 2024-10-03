@@ -71,12 +71,12 @@ namespace RehabManagementSystem.Database;
     modelBuilder.Entity<IdentityUserRole<string>>().HasData(
         new IdentityUserRole<string>
         {
-            UserId = user1.Id, // Assign user1 to Admin
+            UserId = user1.Id, 
             RoleId = adminRole.Id
         },
         new IdentityUserRole<string>
         {
-            UserId = user2.Id, // Assign user2 to User
+            UserId = user2.Id, 
             RoleId = userRole.Id
         }
     );

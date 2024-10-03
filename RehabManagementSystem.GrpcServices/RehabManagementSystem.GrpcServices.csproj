@@ -17,6 +17,11 @@
 
     
   <ItemGroup>
-    <Protobuf Include="Protos/login.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos/employee.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+    
+  <ItemGroup>
+    <ProjectReference Include="..\RehabManagementSystem.Database\RehabManagementSystem.Database.csproj" />
   </ItemGroup>
 </Project>

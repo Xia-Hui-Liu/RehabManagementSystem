@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option csharp_namespace = "RehabManagement.GrpcServices";
+
+package employee;
+
+// The Employee service definition.
+service EmployeeService {
+    // Get an employee by their ID
+    rpc GetEmployeeById(GetEmployeeByIdRequest) returns (EmployeeResponse);
+    
+    // Create a new employee
+    rpc CreateEmployee(CreateEmployeeRequest) returns (EmptyResponse);
+
+    // Update an employee
+    rpc UpdateEmployee(UpdateEmployeeRequest) returns (EmptyResponse);
+
+    // Delete an employee
+    rpc DeleteEmployee(DeleteEmployeeRequest) returns (EmptyResponse);
+}
+
+// Request and Response Messages
+message GetEmployeeByIdRequest {
+    string id = 1;
+}
+
+message CreateEmployeeRequest {
+    Employee employee = 1;
+}
+
+message UpdateEmployeeRequest {
+    Employee employee = 1;
+}
+
+message DeleteEmployeeRequest {
+    string id = 1;
+}
+
+message EmployeeResponse {
+    Employee employee = 1;
+}
+
+message EmptyResponse {}
+
+// Employee Data Model (matching IdentityUser + custom fields)
+message Employee {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+}

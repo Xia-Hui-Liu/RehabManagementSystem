@@ -3,14 +3,6 @@ using RehabManagementSystem.Domain;
 
 namespace RehabManagement.Database.Repositories;
 
-public interface IEmployeeRepository
-{
-    Task<Employee?> GetEmployeeByIdAsync(int id);
-    Task CreateEmployeeAsync(Employee employee);
-    Task UpdateEmployeeAsync(Employee employee);
-    Task DeleteEmployeeAsync(int id);
-}
-
 public class EmployeeRepository : IEmployeeRepository
 {
     private readonly ApplicationDbContext _context;
@@ -21,7 +13,7 @@ public class EmployeeRepository : IEmployeeRepository
     }
 
     // Get employee by id
-    public async Task<Employee?> GetEmployeeByIdAsync(int id)
+    public async Task<Employee?> GetEmployeeByIdAsync(string id)
     {
         if (_context.Employees == null)
            return null;
@@ -44,7 +36,7 @@ public class EmployeeRepository : IEmployeeRepository
     }
 
     // Delete an employee
-    public async Task DeleteEmployeeAsync(int id)
+    public async Task DeleteEmployeeAsync(string id)
     {
         var employee = await _context.Employees.FindAsync(id);
         if (employee != null)
