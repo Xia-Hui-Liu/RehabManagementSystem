@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "RehabManagement.GrpcServices";
+option csharp_namespace = "RehabManagementSystem.GrpcServices";
 
 package employee;
 
@@ -45,6 +45,9 @@ message EmptyResponse {}
 // Employee Data Model (matching IdentityUser + custom fields)
 message Employee {
     string id = 1;
-    string first_name = 2;
-    string last_name = 3;
+    string user_name = 2;
+    string email = 3;
+    string phone_number = 4;
+    string first_name = 5;
+    string last_name = 6;
 }

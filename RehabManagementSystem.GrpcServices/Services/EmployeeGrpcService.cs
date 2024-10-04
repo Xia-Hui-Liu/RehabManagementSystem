@@ -1,7 +1,7 @@
 using Google.Protobuf;
 using Grpc.Core;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using RehabManagement.GrpcServices;
+using RehabManagementSystem.GrpcServices;
 
 
 namespace RehabManagementSystem.GrpcServices.Services;

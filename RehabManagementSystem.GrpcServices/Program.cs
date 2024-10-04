@@ -1,9 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using RehabManagementSystem.Database;
 using RehabManagementSystem.GrpcServices.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite(connectionString));
 
 var app = builder.Build();
 
