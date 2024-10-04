@@ -17,9 +17,7 @@ The **Rehab Management System** is a comprehensive solution for managing rehabil
 The project is structured as follows:
 
 RehabManagementSystem/
-│
-├── RehabManagementSystem.API/        # REST API built with ASP.NET Core
-│
+
 ├── RehabManagementSystem.GrpcServices/ # gRPC Services for inter-service communication
 │
 ├── RehabManagementSystem.Database/    # Database layer
