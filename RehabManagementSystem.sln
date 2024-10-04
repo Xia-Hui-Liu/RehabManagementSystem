@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RehabManagementSystem.Domain", "RehabManagementSystem.Domain\RehabManagementSystem.Domain.csproj", "{EED21DD2-3B4A-4552-B475-3D0003B0C73B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RehabManagementSystem.API", "RehabManagementSystem.API\RehabManagementSystem.API.csproj", "{F004D6CC-3720-4541-AAF7-A6D16CD4A87E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RehabManagementSystem.Database", "RehabManagementSystem.Database\RehabManagementSystem.Database.csproj", "{1F95C406-09D9-4A52-A6F3-5CD0C771B8B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RehabManagementSystem.GrpcServices", "RehabManagementSystem.GrpcServices\RehabManagementSystem.GrpcServices.csproj", "{4F939196-2653-41BA-9499-955C3EB4DF39}"
